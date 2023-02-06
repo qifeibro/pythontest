@@ -10,6 +10,10 @@ print(json_str)
 json_str = json.dumps(data, ensure_ascii=False)
 print(type(json_str))
 print(json_str)
+DATASTR = str(data)
+print(DATASTR)
+print(type(data))
+print("----------------------------------")
 # 准备字典，将字典转换为JSON
 d = {"name":"周杰轮", "addr":"台北"}
 json_str = json.dumps(d, ensure_ascii=False)
