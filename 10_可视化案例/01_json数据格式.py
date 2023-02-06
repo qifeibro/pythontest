@@ -13,12 +13,12 @@ json_str = json.dumps(d, ensure_ascii=False)
 print(type(json_str))
 print(json_str)
 # 将JSON字符串转换为Python数据类型[{k: v, k: v}, {k: v, k: v}]
-s = '[{"name": "张大山", "age": 11}, {"name": "王大锤", "age": 13}, {"name": "赵小虎", "age": 16}]'
-l = json.loads(s)
+S = '[{"name": "张大山", "age": 11}, {"name": "王大锤", "age": 13}, {"name": "赵小虎", "age": 16}]'
+l = json.loads(S)
 print(type(l))
 print(l)
 # 将JSON字符串转换为Python数据类型{k: v, k: v}
-s = '{"name": "周杰轮", "addr": "台北"}'
-d = json.loads(s)
+S = '{"name": "周杰轮", "addr": "台北"}'
+d = json.loads(S)
 print(type(d))
 print(d)
