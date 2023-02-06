@@ -4,6 +4,9 @@
 import json
 # 准备列表，列表内每一个元素都是字典，将其转换为JSON
 data = [{"name": "张大山", "age": 11}, {"name": "王大锤", "age": 13}, {"name": "赵小虎", "age": 16}]
+json_str = json.dumps(data)
+print(type(json_str))
+print(json_str)
 json_str = json.dumps(data, ensure_ascii=False)
 print(type(json_str))
 print(json_str)
