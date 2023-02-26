@@ -18,7 +18,21 @@ province_data_list = data_dict["areaTree"][0]["children"]
 # 组装每个省份和确诊人数为元组，并各个省的数据都封装入列表内
 data_list = []      # 绘图需要用的数据列表
 for province_data in province_data_list:
-    province_name = province_data["name"]                   # 省份名称
+    province_name = province_data["name"]                  # 省份名称
+    if province_name in ["上海","天津","北京","重庆"]:
+        province_name += "市"
+    elif province_name in ("香港", "澳门"):
+        province_name += "特别行政区"
+    elif province_name == "广西":
+        province_name += "壮族自治区"
+    elif province_name == "宁夏":
+        province_name += "回族自治区"
+    elif province_name == "新疆":
+        province_name += "维吾尔自治区"
+    elif province_name in ["内蒙古","西藏"]:
+        province_name += "自治区"
+    else:
+        province_name += "省"
     province_confirm = province_data["total"]["confirm"]    # 确诊人数
     data_list.append((province_name, province_confirm))
 
@@ -29,16 +43,16 @@ map = Map()
 map.add("各省份确诊人数", data_list, "china")
 # 设置全局配置，定制分段的视觉映射
 map.set_global_opts(
-    title_opts=TitleOpts(title="全国疫情地图"),
+    title_opts=TitleOpts(title="中国疫情地图"),
     visualmap_opts=VisualMapOpts(
         is_show=True,           # 是否显示
         is_piecewise=True,      # 是否分段
         pieces=[
-            {"min": 1, "max": 99, "lable": "1~99人", "color": "#CCFFFF"},
-            {"min": 100, "max": 999, "lable": "100~9999人", "color": "#FFFF99"},
-            {"min": 1000, "max": 4999, "lable": "1000~4999人", "color": "#FF9966"},
-            {"min": 5000, "max": 9999, "lable": "5000~99999人", "color": "#FF6666"},
-            {"min": 10000, "max": 99999, "lable": "10000~99999人", "color": "#CC3333"},
+            {"min": 1, "max": 99, "label": "1~99人", "color": "#CCFFFF"},
+            {"min": 100, "max": 999, "label": "100~999人", "color": "#FFFF99"},
+            {"min": 1000, "max": 4999, "label": "1000~4999人", "color": "#FF9966"},
+            {"min": 5000, "max": 9999, "label": "5000~9999人", "color": "#FF6666"},
+            {"min": 10000, "max": 99999, "label": "10000~99999人", "color": "#CC3333"},
             {"min": 100000, "lable": "100000+", "color": "#990033"},
         ]
     )
