@@ -31,7 +31,7 @@ us_y_data = us_trend_data['list'][0]['data'][:314]
 # 生成图表
 line = Line()       # 构建折线图对象
 # 添加x轴数据
-line.add_xaxis(us_x_data)   # x轴是公用的，所以使用一个国家的数据即可
+line.add_xaxis(us_x_data)   # x轴
 # 添加y轴数据
 line.add_yaxis("美国确诊人数", us_y_data, label_opts=LabelOpts(is_show=False))     # 添加美国的y轴数据
 
