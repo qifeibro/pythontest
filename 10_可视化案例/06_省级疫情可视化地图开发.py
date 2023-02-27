@@ -28,7 +28,7 @@ data_list.append(("济源市", 5))
 
 # 构建地图
 map = Map()
-map.add("河南省疫情分布", data_list, "河南")
+map.add("河南疫情分布", data_list, "河南")
 # 设置全局选项
 map.set_global_opts(
     title_opts=TitleOpts(title="河南省疫情地图"),
@@ -36,12 +36,12 @@ map.set_global_opts(
         is_show=True,           # 是否显示
         is_piecewise=True,      # 是否分段
         pieces=[
-            {"min": 1, "max": 99, "lable": "1~99人", "color": "#CCFFFF"},
-            {"min": 100, "max": 999, "lable": "100~9999人", "color": "#FFFF99"},
-            {"min": 1000, "max": 4999, "lable": "1000~4999人", "color": "#FF9966"},
-            {"min": 5000, "max": 9999, "lable": "5000~99999人", "color": "#FF6666"},
-            {"min": 10000, "max": 99999, "lable": "10000~99999人", "color": "#CC3333"},
-            {"min": 100000, "lable": "100000+", "color": "#990033"},
+            {"min": 1, "max": 99, "color": "#CCFFFF"},
+            {"min": 100, "max": 999, "color": "#FFFF99"},
+            {"min": 1000, "max": 4999, "color": "#FF9966"},
+            {"min": 5000, "max": 9999, "color": "#FF6666"},
+            {"min": 10000, "max": 99999, "color": "#CC3333"},
+            {"min": 100000, "color": "#990033"},
         ]
     )
 )

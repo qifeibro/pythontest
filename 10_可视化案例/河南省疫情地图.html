@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Awesome-pyecharts</title>
-            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
-        <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/henan.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/maps/henan.js"></script>
 
 </head>
-<body>
-    <div id="893f45058ae7414f905b9e040a2c86ca" class="chart-container" style="width:900px; height:500px;"></div>
+<body >
+    <div id="96bf83a8734f4a089f86c332009a20d6" class="chart-container" style="width:900px; height:500px; "></div>
     <script>
-        var chart_893f45058ae7414f905b9e040a2c86ca = echarts.init(
-            document.getElementById('893f45058ae7414f905b9e040a2c86ca'), 'white', {renderer: 'canvas'});
-        var option_893f45058ae7414f905b9e040a2c86ca = {
+        var chart_96bf83a8734f4a089f86c332009a20d6 = echarts.init(
+            document.getElementById('96bf83a8734f4a089f86c332009a20d6'), 'white', {renderer: 'canvas'});
+        var option_96bf83a8734f4a089f86c332009a20d6 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -21,42 +21,29 @@
     "animationDurationUpdate": 300,
     "animationEasingUpdate": "cubicOut",
     "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
     "color": [
-        "#c23531",
-        "#2f4554",
-        "#61a0a8",
-        "#d48265",
-        "#749f83",
-        "#ca8622",
-        "#bda29a",
-        "#6e7074",
-        "#546570",
-        "#c4ccd3",
-        "#f05b72",
-        "#ef5b9c",
-        "#f47920",
-        "#905a3d",
-        "#fab27b",
-        "#2a5caa",
-        "#444693",
-        "#726930",
-        "#b2d235",
-        "#6d8346",
-        "#ac6767",
-        "#1d953f",
-        "#6950a1",
-        "#918597"
+        "#5470c6",
+        "#91cc75",
+        "#fac858",
+        "#ee6666",
+        "#73c0de",
+        "#3ba272",
+        "#fc8452",
+        "#9a60b4",
+        "#ea7ccc"
     ],
     "series": [
         {
             "type": "map",
-            "name": "\u6cb3\u5357\u7701\u75ab\u60c5\u5206\u5e03",
+            "name": "\u6cb3\u5357\u75ab\u60c5\u5206\u5e03",
             "label": {
                 "show": true,
-                "position": "top",
                 "margin": 8
             },
-            "mapType": "\u6cb3\u5357",
+            "map": "\u6cb3\u5357",
             "data": [
                 {
                     "name": "\u90d1\u5dde\u5e02",
@@ -156,16 +143,31 @@
     "legend": [
         {
             "data": [
-                "\u6cb3\u5357\u7701\u75ab\u60c5\u5206\u5e03"
+                "\u6cb3\u5357\u75ab\u60c5\u5206\u5e03"
             ],
             "selected": {
-                "\u6cb3\u5357\u7701\u75ab\u60c5\u5206\u5e03": true
+                "\u6cb3\u5357\u75ab\u60c5\u5206\u5e03": true
             },
             "show": true,
             "padding": 5,
             "itemGap": 10,
             "itemWidth": 25,
-            "itemHeight": 14
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
         }
     ],
     "tooltip": {
@@ -179,17 +181,28 @@
         "alwaysShowContent": false,
         "showDelay": 0,
         "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
         "textStyle": {
             "fontSize": 14
         },
         "borderWidth": 0,
-        "padding": 5
+        "padding": 5,
+        "order": "seriesAsc"
     },
     "title": [
         {
+            "show": true,
             "text": "\u6cb3\u5357\u7701\u75ab\u60c5\u5730\u56fe",
+            "target": "blank",
+            "subtarget": "blank",
             "padding": 5,
-            "itemGap": 10
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false
         }
     ],
     "visualMap": {
@@ -207,7 +220,9 @@
         "calculable": true,
         "inverse": false,
         "splitNumber": 5,
+        "hoverLink": true,
         "orient": "vertical",
+        "padding": 5,
         "showLabel": true,
         "itemWidth": 20,
         "itemHeight": 14,
@@ -216,42 +231,36 @@
             {
                 "min": 1,
                 "max": 99,
-                "lable": "1~99\u4eba",
                 "color": "#CCFFFF"
             },
             {
                 "min": 100,
                 "max": 999,
-                "lable": "100~9999\u4eba",
                 "color": "#FFFF99"
             },
             {
                 "min": 1000,
                 "max": 4999,
-                "lable": "1000~4999\u4eba",
                 "color": "#FF9966"
             },
             {
                 "min": 5000,
                 "max": 9999,
-                "lable": "5000~99999\u4eba",
                 "color": "#FF6666"
             },
             {
                 "min": 10000,
                 "max": 99999,
-                "lable": "10000~99999\u4eba",
                 "color": "#CC3333"
             },
             {
                 "min": 100000,
-                "lable": "100000+",
                 "color": "#990033"
             }
         ]
     }
 };
-        chart_893f45058ae7414f905b9e040a2c86ca.setOption(option_893f45058ae7414f905b9e040a2c86ca);
+        chart_96bf83a8734f4a089f86c332009a20d6.setOption(option_96bf83a8734f4a089f86c332009a20d6);
     </script>
 </body>
 </html>
