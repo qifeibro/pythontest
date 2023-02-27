@@ -28,10 +28,10 @@ data_list.append(("济源市", 5))
 
 # 构建地图
 map = Map()
-map.add("河南疫情分布", data_list, "河南")
+map.add("河南省疫情分布", data_list, "河南")
 # 设置全局选项
 map.set_global_opts(
-    title_opts=TitleOpts(title="河南省疫情地图"),
+    title_opts=TitleOpts(title="河南疫情地图"),
     visualmap_opts=VisualMapOpts(
         is_show=True,           # 是否显示
         is_piecewise=True,      # 是否分段
