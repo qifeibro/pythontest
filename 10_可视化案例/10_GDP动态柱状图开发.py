@@ -2,11 +2,11 @@
 演示第三个图表：GDP动态柱状图开发
 """
 from pyecharts.charts import Bar, Timeline
-from pyecharts.options import *
+from pyecharts.options import LabelOpts, TitleOpts
 from pyecharts.globals import ThemeType
 
 # 读取数据
-f = open("D:/1960-2019全球GDP数据.csv", "r", encoding="GB2312")
+f = open("1960-2019全球GDP数据.csv", "r", encoding="GB2312")
 data_lines = f.readlines()
 # 关闭文件
 f.close()
@@ -27,6 +27,11 @@ for line in data_lines:
     except KeyError:
         data_dict[year] = []
         data_dict[year].append([country, gdp])
+    # if year in data_dict:
+    #     data_dict[year].append([country, gdp])
+    # else:
+    #     data_dict[year] = []
+    #     data_dict[year].append([country, gdp])
 
 # print(data_dict[1960])
 # 创建时间线对象
@@ -43,19 +48,20 @@ for year in sorted_year_list:
         x_data.append(country_gdp[0])   # x轴添加国家
         y_data.append(country_gdp[1] / 100000000)   # y轴添加gdp数据
 
+    # 光标左击选中某个变量，然后CTRL+Shift+L 选中所有的目标变量
     # 构建柱状图
-    bar = Bar()
+    my_bar = Bar()
     x_data.reverse()
     y_data.reverse()
-    bar.add_xaxis(x_data)
-    bar.add_yaxis("GDP(亿)", y_data, label_opts=LabelOpts(position="right"))
+    my_bar.add_xaxis(x_data)
+    my_bar.add_yaxis("GDP(亿)", y_data, label_opts=LabelOpts(position="right"))
     # 反转x轴和y轴
-    bar.reversal_axis()
+    my_bar.reversal_axis()
     # 设置每一年的图表的标题
-    bar.set_global_opts(
+    my_bar.set_global_opts(
         title_opts=TitleOpts(title=f"{year}年全球前8GDP数据")
     )
-    timeline.add(bar, str(year))
+    timeline.add(my_bar, str(year))
 
 
 # for循环每一年的数据，基于每一年的数据，创建每一年的bar对象
