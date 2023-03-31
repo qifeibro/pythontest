@@ -1,7 +1,10 @@
 """
 和文件相关的类定义
 """
+import json
+
 from data_define import Record
+
 
 # 先定义一个抽象类用来做顶层设计，确定有哪些功能需要实现
 class FileReader:
@@ -30,8 +33,35 @@ class CsvFileReader(FileReader):
 
         f.close()
         return record_list
+    
+
+class JsonFileReader(FileReader):
+
+    def __init__(self, path) -> None:
+        self.path = path    # 定义成员变量记录文件的路径
+
+
+    def read_data(self) -> list[Record]:
+        f = open(self.path, "r", encoding="UTF-8")
+
+        record_list: list[Record] = []
+        for line in f.readlines():
+            data_dict = json.loads(line)
+            record = Record(data_dict["date"], data_dict["order_id"], data_dict["money"], data_dict["province"])
+            record_list.append(record)
+
+        f.close()
+        return record_list
 
 
 if __name__ == '__main__':
     csv_file_reader = CsvFileReader("/workspaces/pythontest/13_面向对象/数据分析案例/2011年1月销售数据.txt")
-    csv_file_reader.read_data()
+    json_file_reader = JsonFileReader("13_面向对象/数据分析案例/2011年2月销售数据JSON.txt")
+    list1 = csv_file_reader.read_data()
+    list2 = json_file_reader.read_data()
+
+    for l in list1:
+        print(l)
+
+    for l in list2:
+        print(l)
