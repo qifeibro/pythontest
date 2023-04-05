@@ -10,6 +10,9 @@
 
 from file_define import CsvFileReader, JsonFileReader
 from data_define import Record
+from pyecharts.charts import Bar
+from pyecharts.options import *
+from pyecharts.globals import ThemeType
 
 csv_file_reader = CsvFileReader("/workspaces/pythontest/13_面向对象/数据分析案例/2011年1月销售数据.txt")
 json_file_reader = JsonFileReader("13_面向对象/数据分析案例/2011年2月销售数据JSON.txt")
@@ -29,4 +32,13 @@ for record in all_data:
     else:
         data_dict[record.date] = record.money
 
-print(data_dict)
+# 可视化图表开发
+bar = Bar(init_opts=InitOpts(theme=ThemeType.LIGHT))
+
+bar.add_xaxis(list(data_dict.keys()))
+bar.add_yaxis("销售额", list(data_dict.values()), label_opts=LabelOpts(is_show=False))
+bar.set_global_opts(
+    title_opts=TitleOpts(title="每日销售额")
+)
+
+bar.render("每日销售额柱状图.html")
